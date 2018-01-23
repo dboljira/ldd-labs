@@ -1,0 +1,1 @@
+cmd_/home/doljira/ldd-labs/usb/usbdriver/usb-skeleton.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/doljira/ldd-labs/usb/usbdriver/usb-skeleton.ko /home/doljira/ldd-labs/usb/usbdriver/usb-skeleton.o /home/doljira/ldd-labs/usb/usbdriver/usb-skeleton.mod.o ;  true
