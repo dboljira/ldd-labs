@@ -3,8 +3,9 @@
 * usb device file. The usb driver creates the device file
 * when it is loaded and handles any file operations from
 * this user space program as per USB protocol.
-* This user space program sends a command(8 Bytes) to toggle the usb
-* device LEDs, reads the status of the LEDs and the current temprature.
+* This user space program sends a command(max 8 Bytes) to toggle the usb
+* device LEDs, reads the status of the LEDs and AVR AT90USBKEY board temp sensor.
+* 
 * 
 */
 #include <fcntl.h>
@@ -13,7 +14,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdint.h>
-#define DEFAULT_DEVICE "/dev/skel0"
+#define DEFAULT_DEVICE "/dev/lddusb0"
 #define MAX_BYTES 8
 int main(int argc, char *argv[])
 {

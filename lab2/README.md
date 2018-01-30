@@ -6,4 +6,6 @@ status information when desired. The firmware, therefore, exposes both temperatu
 to toggle the device LEDs, read each LEDs status, and the temperature sensor data.
 
 A tester script (TestMyUsb.py) is also provided to test the functionality of the firmware. The script issues commands from the host to toggle LEDs, read status of each 
-LED and the temperature sensor data. 
+LED and the temperature sensor data.
+
+The source code is located  /lufa-LUFA-170418/Projects/MyUsb.

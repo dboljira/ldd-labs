@@ -25,31 +25,21 @@ import random
 # device_pid = 0x206C
 device_vid = 0x03DB
 device_pid = 0x430C
-
 device_in_ep = 3
 device_out_ep = 4
-
-
 def get_vendor_device_handle():
     dev_handle = usb.core.find(idVendor=device_vid, idProduct=device_pid)
     return dev_handle
-
-
 def write(device, packet):
     device.write(usb.util.ENDPOINT_OUT | device_out_ep, packet, 10000)
-
-
 def read(device):
     packet = device.read(usb.util.ENDPOINT_IN | device_in_ep, 8, 10000)[0:5]
     return packet
 def main():
-
     vendor_device = get_vendor_device_handle()
-
     if vendor_device is None:
         print("No valid Vendor device found.")
         sys.exit(1)
-
     vendor_device.set_configuration()
 
     p = 0

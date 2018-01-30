@@ -44,16 +44,12 @@
 int main(void)
 {
   SetupHardware();
-
   LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
   GlobalInterruptEnable();
-
   for (;;)
   {
     USB_USBTask();
     uint8_t ReceivedData[VENDOR_IO_EPSIZE];
-
-
     memset(ReceivedData, 0x00, sizeof(ReceivedData));
     //select given endpoint address
     Endpoint_SelectEndpoint(VENDOR_OUT_EPADDR);
@@ -61,16 +57,13 @@ int main(void)
     // has received new packet from the host
     if (Endpoint_IsOUTReceived())
     {
-
       Endpoint_Read_Stream_LE(ReceivedData, VENDOR_IO_EPSIZE, NULL);
       Endpoint_ClearOUT();
       //Toggle LEDS
       if (ReceivedData[4]==0) 
       {
         LEDs_TurnOffLEDs(LEDS_ALL_LEDS);
-
         uint8_t LEDMask = LEDS_NO_LEDS ;
-
         if (ReceivedData[0])
           LEDMask |= LEDS_LED1;
         if (ReceivedData[1])
